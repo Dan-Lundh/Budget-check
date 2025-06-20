@@ -9,6 +9,7 @@ gcp-credentials.json
 /podcast/*.mp3
 /podcast/.txt
 
+
 #Reports
 /Reports
 
@@ -198,3 +199,4 @@ credentials.json
 token.json
 service_account.json
 assets/background.mp3
+training/train_CNN.ipynb
