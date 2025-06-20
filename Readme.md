@@ -1,4 +1,4 @@
-# Budget check for projects (but the approach also work for companies)
+# Budget check for projects (but the approach also planning regular work for companies)
 
 ## About
 The budget check is built from pytorch/tensorflow and demonstrates how a 
