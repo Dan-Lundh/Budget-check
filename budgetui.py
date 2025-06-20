@@ -79,6 +79,7 @@ class BudgetGUI(QWidget):
         layout_right = QVBoxLayout()
         layout_right.setSpacing(0)
         image_layout = QHBoxLayout()
+        
 
         # Load Excel
         excel_file = ROOTLIB / 'database' / 'Budget-demo.xlsx'
@@ -106,15 +107,9 @@ class BudgetGUI(QWidget):
         image_layout.addWidget(self.image_label)
         layout_right.addWidget(self.image_label)
 
-        # Text label for image column headers
-        # self.text = QLabel()
-        # self.text.setAlignment(Qt.AlignCenter)
-        # self.update_image_text_label()  # Set the label content
         self.labels_widget = QWidget()
         labels_layout = QHBoxLayout()
         self.labels_widget.setLayout(labels_layout)
-
-        # Example tooltips for each column
 
         # DE Tech PM QA Ux
         self.column_labels = ["DE", "Tech", "PM", "QA", "Ux", "DE-2", "Tech-2", "PM-2", "QA-2", "Ux-2"]
@@ -157,7 +152,27 @@ class BudgetGUI(QWidget):
 
         # signal circle
         self.circle_widget = ColorCircleWidget()
-        layout_right.addWidget(self.circle_widget, alignment=Qt.AlignCenter)
+        
+        circle_label = QLabel("Project on track: ")
+        circle_label.setContentsMargins(0, 0, 0, 0)
+        circle_label.setStyleSheet("margin: 0px; padding: 0px;")
+        layout_box = QHBoxLayout()
+        # layout_box.setAlignment(Qt.AlignVCenter)
+        layout_box.setSpacing(0)
+
+        layout_box.setContentsMargins(0, 0, 0, 0)
+        #layout_box.setAlignment(Qt.AlignVCenter)
+        empty =QLabel("            ")
+        layout_box.addWidget(empty)
+        layout_box.addWidget(circle_label)
+        layout_box.addWidget(self.circle_widget)
+        layout_box.addWidget(empty)
+        # layout_box.setAlignment(circle_label)
+        # layout_box.setAlignment(self.circle_widget)
+        container_box = QWidget()
+        container_box.setLayout(layout_box)
+        
+        layout_right.addWidget(container_box)
         self.color_signal.connect(self.circle_widget.set_state)
 
         if self.combo.count():
